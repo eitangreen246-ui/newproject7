@@ -41,6 +41,11 @@ st.subheader(f"{selected_metric} Over Time")
 fig = px.line(df, x='Month', y=selected_metric, markers=True)
 st.plotly_chart(fig, use_container_width=True)
 
+# Pie chart section
+st.subheader(f"{selected_metric} Distribution (Pie Chart)")
+pie_fig = px.pie(df, names='Month', values=selected_metric, title=f"{selected_metric} Distribution by Month")
+st.plotly_chart(pie_fig, use_container_width=True)
+
 # Data table
 st.subheader("Data Table")
 st.dataframe(df, use_container_width=True)
